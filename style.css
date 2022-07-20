@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: rgb(239, 234, 234);
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  max-width: 1280px;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.carousel {
+  display: flex;
+  height: 130px;
+  overflow: hidden;
+  background-color: white;
+  position: relative;
+}
+
+.carousel::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: inherit;
+  background: linear-gradient(90deg, rgba(229, 229, 229, 1), transparent 100%);
+  z-index: 1;
+}
+
+.carousel::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: inherit;
+  right: 0;
+  top: 0;
+  background: linear-gradient(-90deg, rgba(229, 229, 229, 1), transparent 100%);
+  z-index: 1;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation-name: animation;
+  animation-duration: 8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* .slider:hover {
+  animation-play-state: paused;
+} */
+
+.slider__img {
+  width: auto;
+  transform: scale(0.5);
+}
+
+@keyframes animation {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
